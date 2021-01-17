@@ -5,9 +5,9 @@
     - install_modules: [python3-pip]
     - install_pymodules: [mh_z19]
   tasks:
-    - name: install pip # task
-      apt: # task内で指定するモジュール
-        name: "{{ install_modules }}" # モジュールに対して指定するパラメータ
+    - name: install pip
+      apt:
+        name: "{{ install_modules }}"
         state: latest
 
     - name: install python3-install_modules
