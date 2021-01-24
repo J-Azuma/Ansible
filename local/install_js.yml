@@ -3,11 +3,6 @@
   become: true
 
   tasks:
-    - name: change dir
-      command: cd ~
-      changed_when: false
-
-  tasks:
     - name: add repository
       command: curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
       args:
@@ -15,12 +10,10 @@
         removes: /root/nodesource_setup.sh
       changed_when: false
 
-  tasks:
     - name: nodesource_setup
       shell: /bin/bash /root/nodesource_setup.sh
       changed_when: false
 
-  tasks:
     - name: install nodejs
       apt:
         name: nodejs
