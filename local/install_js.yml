@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  become: true
+
+  tasks:
+    - name: add repository
+      command: curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+      args:
+        chdir: /root
+        removes: /root/nodesource_setup.sh
+      changed_when: false
+
+    - name: nodesource_setup
+      shell: /bin/bash /root/nodesource_setup.sh
+      changed_when: false
+
+    - name: install nodejs
+      apt:
+        name: nodejs
