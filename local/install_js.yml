@@ -17,3 +17,8 @@
     - name: install nodejs
       apt:
         name: nodejs
+
+    - name: install yarn
+      npm:
+        name: yarn
+        global: yes
